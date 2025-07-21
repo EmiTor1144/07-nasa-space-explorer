@@ -50,7 +50,7 @@ h1 {
   padding: 0 20px;
 }
 
-/* Inputs and buttons */
+/* Inputs, buttons, and filters */
 input[type="date"],
 button {
   font-family: Arial, sans-serif;
@@ -62,6 +62,33 @@ button {
   font-size: 16px;
   line-height: 1.4;
   width: 100%;
+}
+
+/* Media filter checkboxes */
+
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  background: #f9f9f9;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  transition: background-color 0.2s;
+}
+
+.filter-checkbox:hover {
+  background: #e9e9e9;
+}
+
+.filter-checkbox input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+  padding: 0;
 }
 
 /* Button specific */
@@ -96,8 +123,9 @@ button:hover {
   justify-content: center;
 }
 
-/* Gallery items */
-.gallery-item {
+/* Gallery items and image cards */
+.gallery-item,
+.image-card {
   flex: 1 1 100%;  /* full width by default */
   min-width: 280px;
   max-width: 500px;
@@ -112,21 +140,109 @@ button:hover {
 
 /* Three columns on wider screens */
 @media (min-width: 1000px) {
-  .gallery-item {
+  .gallery-item,
+  .image-card {
     flex: 0 1 31%;
   }
 }
 
-.gallery-item img {
+.gallery-item img,
+.image-card img,
+.image-card video {
   width: 100%;
   height: 200px;
   object-fit: cover;
   border-radius: 4px;
 }
 
+/* Video container styles */
+.video-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Media type badge for videos */
+.media-type-badge {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .gallery-item p {
   margin-top: 10px;
   padding: 5px;
+  font-size: 14px;
+}
+
+/* Image card specific styles */
+.image-info {
+  padding: 10px;
+  flex-grow: 1;
+}
+
+.image-info h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+  line-height: 1.3;
+}
+
+.image-date {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.image-description {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+  margin-bottom: 8px;
+}
+
+.image-copyright,
+.image-location {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* Video placeholder styles */
+.video-placeholder {
+  width: 100%;
+  height: 200px;
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  border: 2px dashed #ccc;
+}
+
+.video-icon {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+
+.video-placeholder p {
+  color: #666;
   font-size: 14px;
 }
 
@@ -141,4 +257,90 @@ button:hover {
 .placeholder-icon {
   font-size: 48px;
   margin-bottom: 20px;
+}
+
+/* Modal window styles */
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+  position: relative;
+  background: #1a1a1a;
+  margin: 2% auto;
+  padding: 20px;
+  border: none;
+  border-radius: 10px;
+  width: 800px;
+  height: 90%;
+  overflow-y: auto;
+  color: white;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.close-button:hover {
+  color: #fff;
+}
+
+.modal-media {
+  /* Center the media in the modal */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.modal-media img {
+  /* Make images responsive in modal */
+  width: 100px;
+  height: 70px;
+  border-radius: 8px;
+}
+
+.modal-media video {
+  /* Make videos responsive in modal */
+  width: 100px;
+  height: 70px;
+  border-radius: 8px;
+}
+.modal-info {
+  padding: 0 20px;
+}
+
+.modal-info h2 {
+  color: #4a90e2;
+  margin: 0 0 10px 0;
+  font-size: 1.5em;
+}
+
+.modal-info p {
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+#modal-metadata {
+  margin-top: 15px;
+  padding-top: 15px;
+  border-top: 1px solid #555;
+}
+
+#modal-metadata p {
+  margin: 5px 0;
+  font-size: 0.9em;
+  color: #ccc;
 }
