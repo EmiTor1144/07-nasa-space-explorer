@@ -16,7 +16,21 @@
     <div class="filters">
       <input type="date" id="startDate" />
       <input type="date" id="endDate" />
+      
       <button>Get Space Images</button>
+      
+      <div class="media-filters">
+        <label class="filter-checkbox">
+          <input type="checkbox" id="showImages" checked>
+          <span>📷 Images</span>
+        </label>
+        <label class="filter-checkbox">
+          <input type="checkbox" id="showVideos" checked>
+          <span>🎥 Videos</span>
+        </label>
+      </div>
+      
+      
     </div>
 
     <div id="gallery" class="gallery">
@@ -25,7 +39,20 @@
         <p>Select a date range and click "Get Space Images" to explore the cosmos!</p>
       </div>
     </div>
-  </div>
+
+    <!-- Modal Window -->
+     <div id="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div id="modal-media"></div>
+        <div class="modal-info">
+          <h2 id="modal-title"></h2>
+          <p id="modal-date"></p>
+          <p id="modal-description"></p>
+          <div id="modal-metadata"></div>
+        </div>
+      </div>
+    </div>
 
   <script src="js/dateRange.js"></script>
   <script src="js/script.js"></script>
